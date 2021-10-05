@@ -26,6 +26,8 @@ namespace FAQapp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<FAQContext>(options => options.UseSqlServer(Configuration.GetConnectionString("FAQContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
