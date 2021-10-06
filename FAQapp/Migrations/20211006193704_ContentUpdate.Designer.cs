@@ -3,14 +3,16 @@ using FAQapp.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FAQapp.Migrations
 {
     [DbContext(typeof(FAQContext))]
-    partial class FAQContextModelSnapshot : ModelSnapshot
+    [Migration("20211006193704_ContentUpdate")]
+    partial class ContentUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

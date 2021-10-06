@@ -39,7 +39,7 @@ namespace FAQapp.Models
                     FAQId = 3,
                     Name = "Nightwish",
                     BandWebsite = "https://www.nightwish.com/",
-                    SecondLink = "https://open.spotify.com/artist/2NPduAUeLVsfIauhRwuft1?si=P_b0Qe5SQEavH4JsqCeIgA&nd=1",
+                    SecondLink = "https://open.spotify.com/artist/2NPduAUeLVsfIauhRwuft1",
                     GenreId = "sym-metal",
                     CategoryId = "link"
                 },
@@ -88,7 +88,7 @@ namespace FAQapp.Models
                 {
                     FAQId = 9,
                     Name = "Battle Beast",
-                    BandWebsite = "https://www.nightwish.com/",
+                    BandWebsite = "https://battlebeast.fi/",
                     SecondLink = "https://open.spotify.com/artist/7k5jeohQCF20a8foBD9ize",
                     GenreId = "pow-metal",
                     CategoryId = "link"
