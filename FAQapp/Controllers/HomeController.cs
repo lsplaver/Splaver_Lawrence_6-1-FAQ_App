@@ -19,7 +19,7 @@ namespace FAQapp.Controllers
             context = ctx;
         }
 
-        [HttpGet("[controller]/[action]/Genre/{id}")]
+        [HttpGet("[controller]/[action]/genre/{id}")]
         [HttpGet("[controller]/[action]/category/{id}")]
         public IActionResult Index(string id)
         {
