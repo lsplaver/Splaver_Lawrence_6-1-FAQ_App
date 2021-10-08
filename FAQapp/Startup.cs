@@ -53,17 +53,17 @@ namespace FAQapp
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
-                    name: "topic and category",
-                    pattern: "{controller}/{action}/topic/{topicId}/category/{catId}");
+                    name: "genre-and-category",
+                    pattern: "{controller}/{action}/genre/{genreId}/category/{catId}");
                 endpoints.MapControllerRoute(
-                    name: "topic",
-                    pattern: "{controller}/{action}/topic/{topicId}");
+                    name: "genre",
+                    pattern: "{controller}/{action}/genre/{genreId}");
                 endpoints.MapControllerRoute(
                     name: "category",
-                    pattern: "{controller}/{action}/category/{catId}");
+                    pattern: "{controller}/{action}/category/{catUd}");
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/"); // {id?}");
             });
         }
     }
