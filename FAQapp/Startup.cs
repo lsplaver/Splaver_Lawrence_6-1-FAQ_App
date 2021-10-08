@@ -26,6 +26,11 @@ namespace FAQapp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddRouting(options =>
+            {
+                options.LowercaseUrls = true;
+                options.AppendTrailingSlash = true;
+            });
 
             services.AddDbContext<FAQContext>(options => options.UseSqlServer(Configuration.GetConnectionString("FAQContext")));
         }
