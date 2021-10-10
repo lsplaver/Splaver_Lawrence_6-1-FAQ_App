@@ -19,7 +19,7 @@ namespace FAQapp.Controllers
             context = ctx;
         }
 
-        [HttpGet("[controller]/[action]/genre/{id}")]
+        /* [HttpGet("[controller]/[action]/genre/{id}")]
         [HttpGet("[controller]/[action]/category/{id}")]
         public IActionResult Index(string id)
         {
@@ -48,7 +48,7 @@ namespace FAQapp.Controllers
                 return Content("Invalid entry");
             }
 
-        }
+        } */
         /* public IActionResult Index(string catId)
         {
             var faqs = context.FAQs
@@ -60,11 +60,25 @@ namespace FAQapp.Controllers
             return View(faqs);
         } */
 
-        [HttpGet("[controller]/[action]/genre/{genreId}/category/{catId}")]
+        // [HttpGet("[controller]/[action]/genre/{genreId}/category/{catId}")]
+        // [HttpGet("[controller]/[action]/genre/{genreId}")]
+        // [HttpGet("[controller]/[action]/category/{catId}")]
+        // []
         // [Route("genre-and-category")]
-        public IActionResult Index(string genreId, string catId)
+        public IActionResult Index(string genreId = null, string catId = null)
         {
-            /* if ((genreId == null) && (catId != null))
+            if ((genreId != null) && (catId != null))
+            {
+                var faqs = context.FAQs
+                    .Include(c => c.Category)
+                    .Include(c => c.Genre)
+                    .Where(c => c.GenreId == genreId)
+                    .Where(c => c.CategoryId == catId)
+                    .OrderBy(c => c.Name)
+                    .ToList();
+                return View(faqs);
+            }
+            if ((genreId == null) && (catId != null))
             {
                 var faqs = context.FAQs
                     .Include(c => c.Category)
@@ -74,7 +88,7 @@ namespace FAQapp.Controllers
                     .ToList();
                 return View(faqs);
             }
-            else if ((genreId != null) && (catId != null))
+            else if ((genreId != null) && (catId == null))
             {
                 var faqs = context.FAQs
                     .Include(c => c.Category)
@@ -84,18 +98,7 @@ namespace FAQapp.Controllers
                     .ToList();
                 return View(faqs);
             }
-            else if ((genreId != null) && (catId != null))
-            { */
-                var faqs = context.FAQs
-                    .Include(c => c.Category)
-                    .Include(c => c.Genre)
-                    .Where(c => c.GenreId == genreId)
-                    .Where(c => c.CategoryId == catId)
-                    .OrderBy(c => c.Name)
-                    .ToList();
-                return View(faqs);
-            // }
-            /* else
+            else
             {
                 var faqs = context.FAQs
                     .Include(c => c.Category)
@@ -103,11 +106,11 @@ namespace FAQapp.Controllers
                     .OrderBy(c => c.Name)
                     .ToList();
                 return View(faqs);
-            } */
+            }
         }
 
         // [Route("default")]
-        public IActionResult Index()
+        /* public IActionResult Index()
         {
             var faqs = context.FAQs
                 .Include(c => c.Category)
@@ -115,6 +118,6 @@ namespace FAQapp.Controllers
                 .OrderBy(c => c.Name)
                 .ToList();
             return View(faqs);
-        }
+        } */
     }
 }
